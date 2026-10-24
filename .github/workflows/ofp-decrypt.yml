@@ -38,8 +38,8 @@ jobs:
         run: |
           sudo apt-get update -yqq
           sudo apt-get install -yqq openssl rsync sshpass
-          sudo pip3 install --upgrade pip wheel setuptools
-          sudo pip3 install --upgrade pycryptodome
+          sudo pip3 install --upgrade pip wheel setuptools --break-system-packages
+          sudo pip3 install --upgrade pycryptodome --break-system-packages
           git clone https://github.com/bkerler/oppo_decrypt.git --depth=1
           printf "Trying to Decrypt QC OFP...\n"
           python3 ./oppo_decrypt/ofp_qc_extract.py "$OFP_FILE" out 2>/dev/null
